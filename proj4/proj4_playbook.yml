@@ -1,0 +1,6 @@
+---
+- hosts: all
+  tasks:
+    - name: run task A in project 4
+      debug:
+        msg: "I am in project 4"

@@ -1,0 +1,13 @@
+---
+- hosts: all
+  tasks:
+    - name: run task A
+      debug: msg="run task A"
+
+    - name: run task B
+      debug: msg="run task B"
+
+    - name: run playbook based on extra variable
+      set_stats:
+        data:
+          next_playbook_name: "{{ next_playbook }}"
