@@ -1,6 +1,5 @@
 ---
-- hosts: localhost
-  connection: local
+- hosts: docker_host
   gather_facts: no
   tasks:
     - name: create Docker container simulates VM creation
