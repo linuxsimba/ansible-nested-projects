@@ -1,0 +1,2 @@
+---
+- include: "{{ next_playbook_name }}".yml

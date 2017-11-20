@@ -1,2 +1,0 @@
----
-- import_playbook: "{{ next_playbook_name }}".yml
