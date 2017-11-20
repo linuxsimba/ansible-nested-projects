@@ -8,7 +8,7 @@
       debug: msg="run task B"
 
     - name: add new host
-      add_hosts:
+      add_host:
         hostname: blah blah
         ansible_host: localhost
         ansible_connection: local
