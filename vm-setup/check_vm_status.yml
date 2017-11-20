@@ -1,14 +1,15 @@
 ---
 - hosts: localhost
-  gather_facts: no
+  gather_facts: false
   connection: local
   tasks:
     - debug: var=vm_details
 
-    - name:  add newly created host to temporary inventory
+    - name: add newly created host to temporary inventory
       add_host: "{{ vm_details }}"
 
 - hosts: new_vms
-  gather_facts: no
+  gather_facts: false
   tasks:
-    wait_for_connection:
+    - name: wait for VM to come back up
+      wait_for_connection:
