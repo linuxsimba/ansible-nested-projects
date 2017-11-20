@@ -6,7 +6,11 @@
     - debug: var=vm_details
 
     - name: add newly created host to temporary inventory
-      add_host: "{{ vm_details }}"
+      add_host:
+          hostname: "{{ vm_details.hostname }}"
+          ansible_port: "{{ vm_details.ansible_port }}"
+          groups: "{{ vm_details.groups }}"
+          app_list: "{{ vm_details.app_list }}"
 
 - hosts: new_vms
   gather_facts: false
