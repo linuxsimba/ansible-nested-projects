@@ -6,7 +6,6 @@
 #    app_list: '1234'
 - hosts: localhost
   connection: local
-  # speed it up by not gathering facts
   gather_facts: no
   tasks:
     - assert:
