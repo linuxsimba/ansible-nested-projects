@@ -10,7 +10,7 @@
   gather_facts: no
   tasks:
     - assert:
-        that: "vm_details is defined or vm_details.app_list is defined"
+        that: "vm_details is defined and vm_details.app_list is defined"
         msg: "vm details is not set or doesn't include an app list"
 
     - set_fact:
