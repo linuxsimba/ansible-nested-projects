@@ -1,2 +1,2 @@
 ---
-- include: "../{{ next_job }}/playbook.yml"
+- include: "../{{ vm_setup_playbook }}"
