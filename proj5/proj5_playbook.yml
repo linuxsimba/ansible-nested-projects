@@ -1,2 +1,2 @@
 ---
-- include: "{{next_playbook_name}}/{{ next_playbook_name }}_playbook.yml"
+- include: "../{{next_playbook_name}}/{{ next_playbook_name }}_playbook.yml"
