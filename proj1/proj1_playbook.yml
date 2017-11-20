@@ -7,6 +7,14 @@
     - name: run task B
       debug: msg="run task B"
 
+    - name: add new host
+      add_hosts:
+        hostname: blah blah
+        ansible_host: localhost
+        ansible_connection: local
+        groups:
+          proj2
+
     - name: run playbook based on extra variable
       set_stats:
         data:

@@ -1,6 +1,8 @@
 ---
-- hosts: all
+- hosts: proj3
   tasks:
+    - debug: var=hostvar
+
     - name: run task A in project 3
       debug:
         msg: "I am in project 3"
