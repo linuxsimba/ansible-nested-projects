@@ -1,0 +1,15 @@
+---
+- hosts: localhost
+  connection: local
+  tasks:
+    - name: create docker container
+      docker_container:
+        state: "started"
+        name: "ts{{ port_number }}"
+        image: linuxsimba/python-and-ssh
+        ports:
+          - "9{{ port_number }}:22"
+        env:
+          AUTHORIZED_KEYS="{{ ssh_pub_key }}"
+
+    - debug: var=ansible_ssh_key_private_file

@@ -1,6 +1,8 @@
 ---
 - hosts: all
   tasks:
+    - name: add host
+
     - debug: var=hostvars
 
     - name: run task A in project 3

@@ -1,0 +1,32 @@
+---
+# Base input is as follows
+# vm_details:
+#    hostname: myhost
+#    ansible_ip: myip
+#    app_list: '1234'
+- hosts: localhost
+  connection: local
+  # speed it up by not gathering facts
+  gather_facts: no
+  tasks:
+    - assert:
+        that: "vm_details is defined or vm_details.app_list is defined"
+        msg: "vm details is not set or doesn't include an app list"
+
+    - set_fact:
+        app_list: "{{ vm_details.app_list }}"
+
+    - name: Example of how to check if an extra exists
+      assert:
+        that: app_list is defined
+        msg: "app_list is not defined"
+
+    - name: Example of how to check a variable values against a list of approved entries
+      assert:
+        that: item in approved_app_list
+        msg: "{{ item }} is not found in the approved app list"
+      with_items: "{{ app_list.split(',') }}"
+
+    - name: read jinja2 template with all the host info
+      set_stats:
+        data: "{{ lookup('template', 'pre_vmsetup.j2') | from_yaml }}"

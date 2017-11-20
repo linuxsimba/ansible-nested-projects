@@ -1,0 +1,6 @@
+{# variable value vm_details comes from extra_vars #}
+{# making a variable part of a variable with the same name #}
+{# because i want to combine multiple variables together and #}
+{# send to set_stats for the next playbook #}
+vm_details: "{{ vm_details }}"
+next_job: "vm_setup"
