@@ -7,10 +7,7 @@
 
     - name: add newly created host to temporary inventory
       add_host:
-          hostname: "{{ vm_details.hostname }}"
-          ansible_port: "{{ vm_details.ansible_port }}"
-          groups: "{{ vm_details.groups }}"
-          app_list: "{{ vm_details.app_list }}"
+      args: "{{ lookup('template', 'add_host.j2') | from_yaml }}"
 
 - hosts: new_vms
   gather_facts: false
