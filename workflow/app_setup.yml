@@ -1,0 +1,15 @@
+---
+- hosts: localhost
+  gather_facts: false
+  connection: local
+  tasks:
+    - name: add newly created host to temporary inventory
+      add_host:
+      args: "{{ lookup('template', 'add_host.j2') | from_yaml }}"
+
+- hosts: new_vms
+  gather_facts: true
+  tasks:
+    - include_role: name=app1
+    - include_role: name=app2
+    - include_role: name=app3
