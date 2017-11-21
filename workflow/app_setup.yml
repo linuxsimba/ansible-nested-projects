@@ -1,0 +1,6 @@
+---
+- hosts: new_vms
+  roles:
+    - { role: app1, when: run_app == 'all' or run_app == 'app1' }
+    - { role: app2, when: run_app == 'all' or run_app == 'app2' }
+    - { role: app3, when: run_app == 'all' or run_app == 'app3' }
