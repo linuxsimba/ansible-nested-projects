@@ -9,7 +9,7 @@
 
 - hosts: new_vms
   gather_facts: true
-  tasks:
-    - include_role: name=app1
-    - include_role: name=app2
-    - include_role: name=app3
+  roles:
+    - { role: app1, when 'app1' in app_list or app_list == 'all' }
+    - { role: app2, when 'app2' in app_list or app_list == 'all' }
+    - { role: app3, when 'app3' in app_list or app_list == 'all' }
